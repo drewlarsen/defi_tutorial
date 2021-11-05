@@ -33,10 +33,10 @@ contract('TokenFarm', ([owner, investor]) => {
     })
   })
 
-  describe('Dapp Token deployment', async () => {
+  describe('Bear Token deployment', async () => {
     it('has a name', async () => {
       const name = await dappToken.name()
-      assert.equal(name, 'DApp Token')
+      assert.equal(name, 'Bear Token')
     })
   })
 
@@ -83,7 +83,7 @@ contract('TokenFarm', ([owner, investor]) => {
 
       // Check balances after issuance
       result = await dappToken.balanceOf(investor)
-      assert.equal(result.toString(), tokens('100'), 'investor DApp Token wallet balance correct affter issuance')
+      assert.equal(result.toString(), tokens('100'), 'investor Bear Token wallet balance correct affter issuance')
 
       // Ensure that only onwer can issue tokens
       await tokenFarm.issueTokens({ from: investor }).should.be.rejected;
